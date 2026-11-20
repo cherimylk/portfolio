@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cherry | Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --card:#111; --border:#222; --text:#fff; --muted:#a1a1aa;
+  --accent:#8b5cf6; --accent-soft:#a78bfa; --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
+section{padding:80px 24px}
+.wrap{max-width:1000px;margin:0 auto}
+h2{font-size:2rem;font-weight:700;text-align:center}
+h3.sub{font-size:1.3rem;font-weight:700;margin:56px 0 20px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 32px;background:rgba(0,0,0,.85);backdrop-filter:blur(8px)}
+.logo{font-family:'Caveat',cursive;font-size:1.8rem;color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:.85rem;font-weight:500}
+nav a:hover,nav a.active{color:var(--accent)}
+
+/* HERO */
+.hero{text-align:center;padding:90px 24px 100px}
+.hero h1{font-size:clamp(2.4rem,6vw,3.5rem);font-weight:800;line-height:1.1}
+.hero h1 span{color:var(--accent-soft)}
+.hero h2{font-size:1.6rem;font-weight:600;margin:16px 0 24px}
+.hero p{max-width:520px;margin:0 auto 32px;font-size:.95rem}
+.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 32px;border-radius:999px;font-weight:600;font-size:.9rem;
+  border:1px solid var(--accent);cursor:pointer;font-family:inherit;transition:.2s}
+.btn.fill{background:var(--accent);color:#fff}
+.btn.fill:hover{background:#7c3aed}
+.btn.line{background:transparent;color:#fff}
+.btn.line:hover{background:rgba(139,92,246,.15)}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-top:40px}
+.about h2{text-align:left}
+.about p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.about svg{width:100%;max-width:280px;margin:0 auto;display:block}
+
+/* SKILLS */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius)}
+.skill{padding:18px}
+.skill h4{font-size:.95rem;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:2px 14px;font-size:.72rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent-soft)}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:70px}
+.timeline::before{content:"";position:absolute;left:23px;top:24px;bottom:60px;width:2px;background:var(--accent)}
+.item{position:relative;margin-bottom:24px;padding:20px 24px}
+.year{position:absolute;left:-70px;top:12px;width:48px;height:48px;border-radius:50%;
+  background:var(--accent);display:grid;place-items:center;font-size:.75rem;font-weight:700}
+.item h4{font-size:1rem}
+.item .org{color:var(--accent-soft);font-size:.8rem;margin-bottom:8px}
+.item p{color:var(--muted);font-size:.85rem}
+
+/* PROJECTS */
+.lead{color:var(--muted);text-align:center;max-width:520px;margin:12px auto 48px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.project{overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:140px;background:
+  radial-gradient(circle at 80% 20%,#fde68a 0 6px,transparent 7px),
+  radial-gradient(ellipse at 20% 110%,#ddd6fe 0 35%,transparent 36%),
+  radial-gradient(ellipse at 60% 120%,#c4b5fd 0 40%,transparent 41%),
+  linear-gradient(180deg,#2e1065,#6d28d9)}
+.project .body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.project h4{font-size:1rem}
+.project p{color:var(--muted);font-size:.8rem}
+.project .actions{display:flex;gap:8px;margin-top:auto;align-items:center}
+.project .btn{padding:6px 24px;font-size:.8rem;flex:1;text-align:center}
+.icon-btn{width:30px;height:30px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent-soft);font-size:.8rem}
+.icon-btn:hover{background:rgba(139,92,246,.2)}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.contact .card{padding:24px}
+form label{display:block;font-size:.85rem;font-weight:600;margin:14px 0 6px}
+form input,form textarea{width:100%;padding:10px 14px;background:#000;color:#fff;
+  border:1px solid var(--accent);border-radius:8px;font-family:inherit;font-size:.9rem}
+form textarea{min-height:100px;resize:vertical}
+form .btn{width:100%;margin-top:20px}
+.side{display:flex;flex-direction:column;gap:24px}
+.side p{color:var(--muted);font-size:.9rem}
+.side ul{margin:8px 0 0 18px;color:var(--muted);font-size:.9rem}
+.socials{display:flex;gap:16px;margin-top:12px}
+.socials a{width:36px;height:36px;border:1px solid var(--accent);border-radius:8px;display:grid;place-items:center;
+  color:var(--accent-soft);font-size:.8rem;font-weight:700}
+.socials a:hover{background:rgba(139,92,246,.2)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:32px}
+
+@media(max-width:720px){
+  nav{padding:12px 16px} nav ul{gap:12px;font-size:.75rem}
+  .about,.contact{grid-template-columns:1fr}
+  .about svg{max-width:200px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="logo">cherry</a>
+  <ul>
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <h1>Hi!, I am <span>Cherry</span></h1>
+  <h2>Software Developer</h2>
+  <p>Building meaningful digital experiences through code and creativity. I enjoy developing responsive websites and functional applications that bring ideas to life.</p>
+  <div class="btns">
+    <a href="#projects" class="btn fill">View my work</a>
+    <a href="#contact" class="btn line">Get in touch</a>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <h2>About Me</h2>
+        <p style="margin-top:16px">A passionate and curious individual who enjoys exploring technology and turning creative ideas into something meaningful. I'm interested in software and web development, where I can combine creativity, problem-solving, and continuous learning.</p>
+        <p>I enjoy discovering new technologies, experimenting with different tools, and challenging myself to build projects that improve my skills. I believe that every project is an opportunity to learn something new, grow as a developer, and create something useful.</p>
+      </div>
+      <!-- pixel cat -->
+      <svg viewBox="0 0 16 14" shape-rendering="crispEdges" role="img" aria-label="Pixel art cat">
+        <g fill="#8b5cf6">
+          <rect x="7" y="1" width="1" height="2"/><rect x="12" y="1" width="1" height="2"/>
+          <rect x="7" y="3" width="6" height="1"/>
+          <rect x="6" y="4" width="8" height="5"/>
+          <rect x="3" y="6" width="3" height="3"/><rect x="1" y="7" width="2" height="2"/>
+          <rect x="5" y="9" width="8" height="1"/>
+          <rect x="5" y="10" width="2" height="2"/><rect x="11" y="10" width="2" height="2"/>
+        </g>
+        <g fill="#c4b5fd"><rect x="8" y="5" width="1" height="1"/><rect x="11" y="5" width="1" height="1"/></g>
+      </svg>
+    </div>
+
+    <h3 class="sub">Skills &amp; Technologies</h3>
+    <div class="skills">
+      <div class="card skill"><h4>Frontend</h4><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Tailwind</span></div></div>
+      <div class="card skill"><h4>Backend</h4><div class="tags"><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Django</span></div></div>
+      <div class="card skill"><h4>Tools</h4><div class="tags"><span class="tag">Git</span><span class="tag">Figma</span><span class="tag">GitHub</span><span class="tag">XAMPP</span></div></div>
+      <div class="card skill"><h4>Soft Skills</h4><div class="tags"><span class="tag">Teamwork and Collaboration</span><span class="tag">Adaptibility</span><span class="tag">Time Management</span><span class="tag">Problem-Solving</span></div></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>My Projects</h2>
+    <p class="lead">A collection of projects I've worked on, ranging from web applications to mobile apps and everything in between.</p>
+    <div class="grid" id="project-grid"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Let's Work Together</h2>
+    <div class="contact">
+      <div class="side">
+        <div class="card"><h4>My Socials</h4>
+            <h3>Send me a message</h3>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Email">@</a>
+            <a href="#" aria-label="X">X</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">▶</a>
+          </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="blog">© 2026 Cherry. All rights reserved.</footer>
+
+<script>
+// Edit this array to change your projects (one object per project)
+const projects = [
+  {
+    title: "School Clinic System",
+    desc: "A web-based application designed to help school clinic staff efficiently manage student medical records and monitor medical supplies that allows users to record, search, retrieve, and update student health information while keeping clinic inventory organized and accessible.",
+    tags: ["Tailwind", "Python", "Django"],
+    link: "#",   // details page or live demo
+    code: "#"    // GitHub repo
+  },
+  {
+    title: "Project Two",
+    desc: "Describe what this project does and who it's for.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "#",
+    code: "#"
+  },
+  {
+    title: "Project Three",
+    desc: "Describe what this project does and who it's for.",
+    tags: ["Python", "Flask", "SQLite"],
+    link: "#",
+    code: "#"
+  }
+];
+
+document.getElementById("project-grid").innerHTML = projects.map(p => `
+  <article class="card project">
+    <div class="thumb"></div>
+    <div class="body">
+      <h4>${p.title}</h4>
+      <p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="actions">
+        <a class="btn fill" href="${p.link}">View details</a>
+        <a class="icon-btn" href="${p.code}" aria-label="Source code">&lt;/&gt;</a>
+        <a class="icon-btn" href="${p.link}" aria-label="Live demo">↗</a>
+      </div>
+    </div>
+  </article>`).join("");
+
+document.getElementById("contact-form").addEventListener("submit", e => {
+  e.preventDefault();
+  e.target.querySelector("button").textContent = "Message sent";
+  e.target.reset();
+});
+</script>
+</body>
+</html>
