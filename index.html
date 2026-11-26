@@ -1,222 +1,1023 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Cherry | Portfolio</title>
+<title>Cherry Mae Bendiro | Portfolio</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#0a0a0c; --surface:#131318; --tile:#ece8f7; --border:#2a2a33;
-  --text:#f4f2fa; --muted:#a09fae; --accent:#8b5cf6; --accent-soft:#b9a2fb;
-  --display:"Bricolage Grotesque",Georgia,serif;
-  --body:"Instrument Sans",system-ui,sans-serif;
+:root {
+  --bg: #0a0a0c;
+  --surface: #131318;
+  --tile: #ece8f7;
+  --border: #2a2a33;
+  --text: #f4f2fa;
+  --muted: #a09fae;
+  --accent: #8b5cf6;
+  --accent-soft: #b9a2fb;
+  --display: "Bricolage Grotesque", Georgia, serif;
+  --body: "Instrument Sans", system-ui, sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6}
-body.modal-open{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-img{max-width:100%}
-:focus-visible{outline:2px solid var(--accent-soft);outline-offset:3px}
-.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-section{padding:85px 24px}
-.wrap{max-width:1100px;margin:0 auto}
-h1,h2,h3,h4{font-family:var(--display)}
-h2{font-size:2.2rem;font-weight:800;letter-spacing:-.02em}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px}
 
-/* nav */
-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:rgba(10,10,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.logo{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.03em;color:var(--accent-soft)}
-nav ul{display:flex;gap:25px;list-style:none}
-nav ul a{font-size:.88rem;font-weight:500;color:#d6d4e0}
-nav ul a:hover,nav ul a.active{color:var(--accent-soft)}
-
-/* buttons */
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:10px 24px;border-radius:999px;border:1px solid var(--accent);font-size:.88rem;font-weight:600;color:#fff;background:transparent}
-.btn.fill{background:var(--accent)}
-.btn.fill:hover{background:#7c3aed}
-.btn.line:hover{background:rgba(139,92,246,.15)}
-.icon-btn{width:38px;height:38px;display:grid;place-items:center;border:1px solid #3a3a46;border-radius:50%;background:var(--surface);color:#fff;font-size:1.05rem}
-.icon-btn:hover{background:var(--accent);border-color:var(--accent)}
-
-/* hero */
-.hero{padding:120px 24px 110px;max-width:1100px;margin:0 auto}
-.hero h1{font-size:clamp(3rem,9vw,6.5rem);font-weight:800;line-height:1;letter-spacing:-.04em}
-.hero h2{font-size:1.5rem;font-weight:500;margin:18px 0 22px;color:var(--accent-soft);letter-spacing:0}
-.hero p{max-width:540px;color:var(--muted);margin-bottom:30px}
-.btns{display:flex;flex-wrap:wrap;gap:14px}
-
-/* about */
-.about{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px}
-.about h2{margin-bottom:6px}
-.about p{margin-top:14px;color:var(--muted);font-size:.95rem;max-width:62ch}
-.aside{display:flex;justify-content:center}
-.frame{position:relative;width:100%;max-width:300px;margin:0 18px 18px 0}
-.frame::before{content:"";position:absolute;inset:0;transform:translate(18px,18px);border:2px solid var(--accent);border-radius:28px}
-.frame::after{content:"";position:absolute;inset:-40px;z-index:-1;background:radial-gradient(closest-side,rgba(139,92,246,.28),transparent)}
-.photo{position:relative;z-index:1;width:100%;aspect-ratio:1;overflow:hidden;display:grid;place-items:center;border:8px solid #1a1a21;outline:1px solid var(--border);border-radius:28px;background:var(--surface);font:800 6rem var(--display);color:#2a2a33}
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.education-preview{margin-top:30px;padding:20px}
-.education-preview h3{font-size:1.05rem;margin-bottom:4px}
-.education-preview p{margin:0;font-size:.88rem}
-
-/* skills */
-.srow{display:grid;grid-template-columns:190px 1fr;gap:12px 24px;padding:20px 0;border-top:1px solid var(--border)}
-.srow:first-of-type{border-top:0}
-.srow h4{font-size:1rem;font-weight:700;color:var(--accent-soft);line-height:1.4;padding-top:6px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 8px;background:#1a1a21;border:1px solid var(--border);border-radius:10px;font-size:.88rem;color:var(--text)}
-.chip:hover{border-color:var(--accent)}
-.chip .mark{width:26px;height:26px;display:grid;place-items:center;background:var(--tile);border-radius:7px;color:var(--accent);font-size:1rem;font-weight:700}
-.chip .mark img{width:16px;height:16px;object-fit:contain}
-.soft .chip{background:transparent;padding:6px 14px 6px 10px}
-.soft .chip .mark{background:none;color:var(--accent-soft);width:auto;height:auto}
-.soft{display:flex;flex-wrap:wrap;gap:10px}
-.cert-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;padding:20px 24px}
-.cert-row h4{font-size:1.05rem}
-
-/* projects */
-.lead{max-width:60ch;margin:12px 0 40px;color:var(--muted);font-size:.95rem}
-.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.project{display:flex;flex-direction:column;overflow:hidden;border-radius:16px;transition:border-color .2s,box-shadow .2s}
-.project:hover,.skill-card:hover,.cert-card:hover{border-color:var(--accent);box-shadow:0 0 0 1px rgba(139,92,246,.35),0 14px 40px rgba(139,92,246,.14)}
-.thumb{position:relative;width:100%;aspect-ratio:16/10;display:grid;place-items:center;overflow:hidden;background:#1b1b22}
-.modal .thumb,.feature-card .thumb,.cert-card .thumb{border-radius:12px}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.thumb span{color:#888;font-size:.8rem;text-align:center;padding:10px}
-.project-body{display:flex;flex-direction:column;flex:1;gap:12px;padding:20px}
-.project h4{font-size:1.05rem;line-height:1.35}
-.project p{color:var(--muted);font-size:.85rem;line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{display:inline-flex;padding:3px 12px;border:1px solid var(--accent);border-radius:999px;color:var(--accent-soft);font-size:.74rem}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:34px}
-.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px}
-.head-actions{display:flex;gap:10px;flex-wrap:wrap}
-.link-arrow{display:inline-flex;align-items:center;gap:6px;color:var(--accent-soft);font-weight:600;font-size:.88rem;background:none;border:0;padding:0}
-.link-arrow:hover{color:#fff}
-.project .link-arrow{margin-top:auto;padding-top:6px}
-.skill-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px}
-.skill-card{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:22px;transition:border-color .2s,box-shadow .2s}
-.skill-card img{width:44px;height:44px;object-fit:contain}
-.skill-card .big{width:44px;height:44px;display:grid;place-items:center;font-size:1.6rem;color:var(--accent)}
-.skill-card span{font-weight:600;font-size:.95rem}
-
-/* modals */
-dialog{color:#fff}
-.modal{width:min(850px,94vw);max-height:88vh;margin:auto;padding:25px;overflow-y:auto;background:var(--surface);border:1px solid #333;border-radius:20px}
-.modal.modal-lg{width:min(980px,95vw)}
-.modal::backdrop{background:rgba(0,0,0,.85);backdrop-filter:blur(6px)}
-.modal-header{position:sticky;top:-25px;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:5px 0 17px;margin-bottom:20px;background:var(--surface);border-bottom:1px solid var(--border)}
-.modal-header h3{color:var(--accent-soft);font-size:1.2rem}
-.detail-image{width:100%;min-height:180px;max-height:430px;display:flex;justify-content:center;align-items:center;overflow:hidden;margin-bottom:22px;border:1px solid #333;border-radius:14px;background:#1b1b22}
-.detail-image.cert-zoom{max-height:68vh}
-.detail-image img{width:100%;height:auto;max-height:430px;object-fit:contain}
-.detail-image.cert-zoom img{max-height:68vh}
-.detail-image span{color:#888;padding:30px}
-#pm-body h2,#cm-body h2{font-size:1.6rem;margin-bottom:6px}
-.pm-role{color:var(--accent-soft);font-size:.85rem;margin-bottom:16px}
-#pm-body p,#cm-body p{color:#b8b7c4;font-size:.9rem;line-height:1.8;margin-bottom:16px}
-#pm-body h4{margin:22px 0 10px;font-size:1rem}
-#pm-body ul{padding-left:22px;color:#b8b7c4;font-size:.88rem;line-height:1.9}
-.pm-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--border)}
-.pm-links .btn{flex:1;min-width:140px}
-.feature-grid,.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.feature-card,.cert-card{padding:12px;background:#1a1a21;border:1px solid #303038;border-radius:14px;transition:border-color .2s,box-shadow .2s}
-.cert-card{cursor:pointer}
-.feature-card .thumb,.cert-card .thumb{aspect-ratio:4/3}
-.feature-card h4,.cert-card h4{margin:12px 0 5px;font-size:.95rem}
-.feature-card p,.cert-card p{color:var(--muted);font-size:.82rem;line-height:1.7}
-.cert-card .org{color:var(--accent-soft);font-size:.78rem;margin-bottom:5px}
-.cert-card .meta{color:#8c8b9a;font-size:.75rem;margin-top:4px}
-.cert-card .verify{display:inline-flex;align-items:center;gap:4px;margin-top:8px;color:var(--accent-soft);font-size:.78rem;font-weight:600}
-.cert-card .verify:hover{color:#fff}
-.education-list{display:grid;gap:18px}
-.education-item{padding:20px;background:#1a1a21;border:1px solid #333;border-left:3px solid var(--accent);border-radius:12px}
-.education-item .year{color:var(--accent-soft);font-size:.82rem;font-weight:600}
-.education-item h4{margin:7px 0;font-size:1.05rem}
-.education-item p{color:var(--muted);font-size:.88rem}
-
-/* contact */
-.contact-center{max-width:680px;margin:24px auto 0;text-align:center}
-.contact-center p{color:var(--muted);font-size:.95rem;margin-bottom:28px}
-.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
-.socials a{
-  width:76px;height:76px;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;
-  background:var(--surface);border:1px solid var(--border);border-radius:16px;
-  color:var(--text);font-size:.72rem;font-weight:500;
-  transition:border-color .2s,transform .2s,box-shadow .2s,color .2s;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.socials a .ic{width:24px;height:24px;color:var(--accent-soft);transition:color .2s}
-.socials a:hover{
-  border-color:var(--accent);color:#fff;transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(139,92,246,.22);
-}
-.socials a:hover .ic{color:#fff}
-footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.82rem}
 
-@media(max-width:900px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){
-  nav{padding:12px 18px}nav ul{gap:14px}
-  .about{grid-template-columns:1fr}.about .aside{grid-row:1}.frame{max-width:210px}
-  .hero{padding:80px 20px}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
-@media(max-width:600px){
-  .project-grid{grid-template-columns:1fr}.srow{grid-template-columns:1fr}.srow h4{padding-top:0}
-  section{padding:65px 18px}.skills-card{padding:20px}
-  .modal{padding:18px;border-radius:16px}.modal-header{top:-18px}
-  .pm-links{flex-direction:column}
-  h2{font-size:1.8rem}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  line-height: 1.6;
 }
-@media(max-width:400px){nav{flex-direction:column;gap:8px}.btns .btn{width:100%}}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 3px;
+}
+
+.ic {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+section {
+  padding: 85px 24px;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 6%;
+  background: rgba(10,10,12,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -.03em;
+  color: var(--accent-soft);
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav ul a {
+  font-size: .88rem;
+  font-weight: 500;
+  color: #d6d4e0;
+}
+
+nav ul a:hover,
+nav ul a.active {
+  color: var(--accent-soft);
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  font-size: .88rem;
+  font-weight: 600;
+  color: #fff;
+  background: transparent;
+  transition: .2s;
+}
+
+.btn.fill {
+  background: var(--accent);
+}
+
+.btn.fill:hover {
+  background: #7c3aed;
+}
+
+.btn.line:hover {
+  background: rgba(139,92,246,.15);
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #3a3a46;
+  border-radius: 50%;
+  background: var(--surface);
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.icon-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  padding: 120px 24px 110px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem,6vw,4.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 18px 0 22px;
+  color: var(--accent-soft);
+  letter-spacing: 0;
+}
+
+.hero p {
+  max-width: 540px;
+  color: var(--muted);
+  margin: 0 auto 30px;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* ABOUT */
+
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.about h2 {
+  margin-bottom: 6px;
+}
+
+.about p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: .95rem;
+  max-width: 62ch;
+}
+
+.aside {
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 18px 18px 0;
+}
+
+.frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(18px,18px);
+  border: 2px solid var(--accent);
+  border-radius: 28px;
+}
+
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background: radial-gradient(closest-side,rgba(139,92,246,.28),transparent);
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 8px solid #1a1a21;
+  outline: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--surface);
+  font: 800 6rem var(--display);
+  color: #2a2a33;
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.education-preview {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.education-preview h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.education-preview p {
+  margin: 0;
+  font-size: .88rem;
+}
+
+.cert-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 20px 24px;
+}
+
+.cert-row h4 {
+  font-size: 1.05rem;
+}
+
+/* SKILLS */
+
+.srow {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 12px 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+}
+
+.srow:first-child {
+  border-top: 0;
+}
+
+.srow h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-soft);
+  line-height: 1.4;
+  padding-top: 6px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 14px 6px 8px;
+  background: #1a1a21;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: .88rem;
+  color: var(--text);
+  transition: border-color .2s;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chip .mark {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  background: var(--tile);
+  border-radius: 7px;
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.chip .mark img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.soft {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.soft .chip {
+  background: transparent;
+  padding: 6px 14px 6px 10px;
+}
+
+.soft .chip .mark {
+  background: none;
+  color: var(--accent-soft);
+  width: auto;
+  height: auto;
+}
+
+/* PROJECTS */
+
+.lead {
+  max-width: 60ch;
+  margin: 12px 0 40px;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 22px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: border-color .2s,box-shadow .2s;
+}
+
+.project:hover,
+.skill-card:hover,
+.cert-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(139,92,246,.35),
+              0 14px 40px rgba(139,92,246,.14);
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #1b1b22;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb span {
+  color: #888;
+  font-size: .8rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 20px;
+}
+
+.project h4 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  padding: 3px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent-soft);
+  font-size: .74rem;
+}
+
+.sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.eyebrow {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 6px;
+}
+
+.head-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-soft);
+  font-weight: 600;
+  font-size: .88rem;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.link-arrow:hover {
+  color: #fff;
+}
+
+.project .link-arrow {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* SKILL CARDS */
+
+.skill-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  transition: border-color .2s,box-shadow .2s;
+}
+
+.skill-card img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.skill-card span {
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+/* MODALS */
+
+dialog {
+  color: #fff;
+}
+
+.modal {
+  width: min(850px,94vw);
+  max-height: 88vh;
+  margin: auto;
+  padding: 25px;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid #333;
+  border-radius: 20px;
+}
+
+.modal.modal-lg {
+  width: min(980px,95vw);
+}
+
+.modal::backdrop {
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(6px);
+}
+
+.modal-header {
+  position: sticky;
+  top: -25px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 5px 0 17px;
+  margin-bottom: 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h3 {
+  color: var(--accent-soft);
+  font-size: 1.2rem;
+}
+
+.detail-image {
+  width: 100%;
+  min-height: 180px;
+  max-height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 22px;
+  border: 1px solid #333;
+  border-radius: 14px;
+  background: #1b1b22;
+}
+
+.detail-image.cert-zoom {
+  max-height: 68vh;
+}
+
+.detail-image img {
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+}
+
+.detail-image.cert-zoom img {
+  max-height: 68vh;
+}
+
+.detail-image span {
+  color: #888;
+  padding: 30px;
+}
+
+#pm-body h2,
+#cm-body h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.pm-role {
+  color: var(--accent-soft);
+  font-size: .85rem;
+  margin-bottom: 16px;
+}
+
+#pm-body p,
+#cm-body p {
+  color: #b8b7c4;
+  font-size: .9rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+#pm-body h4 {
+  margin: 24px 0 10px;
+  font-size: 1rem;
+  color: var(--accent-soft);
+}
+
+#pm-body ul {
+  padding-left: 22px;
+  margin: 10px 0 20px;
+  color: #b8b7c4;
+  font-size: .9rem;
+  line-height: 1.9;
+}
+
+#pm-body li {
+  padding-left: 5px;
+  margin-bottom: 8px;
+}
+
+#pm-body li::marker {
+  color: var(--accent-soft);
+}
+
+.pm-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.pm-links .btn {
+  flex: 1;
+  min-width: 140px;
+}
+
+.feature-grid,
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 18px;
+}
+
+.feature-card,
+.cert-card {
+  padding: 12px;
+  background: #1a1a21;
+  border: 1px solid #303038;
+  border-radius: 14px;
+  transition: border-color .2s,box-shadow .2s;
+}
+
+.cert-card {
+  cursor: pointer;
+}
+
+.feature-card .thumb,
+.cert-card .thumb {
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+}
+
+.feature-card h4,
+.cert-card h4 {
+  margin: 12px 0 5px;
+  font-size: .95rem;
+}
+
+.feature-card p,
+.cert-card p {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.7;
+}
+
+.cert-card .org {
+  color: var(--accent-soft);
+  font-size: .78rem;
+  margin-bottom: 5px;
+}
+
+.cert-card .meta {
+  color: #8c8b9a;
+  font-size: .75rem;
+  margin-top: 4px;
+}
+
+.cert-card .verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  color: var(--accent-soft);
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.cert-card .verify:hover {
+  color: #fff;
+}
+
+.education-list {
+  display: grid;
+  gap: 18px;
+}
+
+.education-item {
+  padding: 20px;
+  background: #1a1a21;
+  border: 1px solid #333;
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+}
+
+.education-item .year {
+  color: var(--accent-soft);
+  font-size: .82rem;
+  font-weight: 600;
+}
+
+.education-item h4 {
+  margin: 7px 0;
+  font-size: 1.05rem;
+}
+
+.education-item p {
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+/* DOCUMENTATION */
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 20px;
+}
+
+.doc {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.doc p {
+  color: var(--muted);
+  font-size: .88rem;
+  flex: 1;
+}
+
+.doc .btns {
+  margin-top: 10px;
+}
+
+#doc-frame {
+  width: 100%;
+  height: 70vh;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* CONTACT */
+
+.contact-center {
+  max-width: 680px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.contact-center p {
+  color: var(--muted);
+  font-size: .95rem;
+  margin-bottom: 28px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.socials a {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  font-size: .72rem;
+  font-weight: 500;
+  transition: .2s;
+}
+
+.socials a .ic {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-soft);
+}
+
+.socials a:hover {
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(139,92,246,.22);
+}
+
+.socials a:hover .ic {
+  color: #fff;
+}
+
+footer {
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .project-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:720px) {
+  nav {
+    padding: 12px 18px;
+  }
+
+  nav ul {
+    gap: 14px;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .about .aside {
+    grid-row: 1;
+  }
+
+  .frame {
+    max-width: 210px;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+}
+
+@media(max-width:600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .srow {
+    grid-template-columns: 1fr;
+  }
+
+  .srow h4 {
+    padding-top: 0;
+  }
+
+  section {
+    padding: 65px 18px;
+  }
+
+  .modal {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    top: -18px;
+  }
+
+  .pm-links {
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media(max-width:400px) {
+  nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav ul {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btns .btn {
+    width: 100%;
+  }
+}
 </style>
 </head>
+
 <body>
 
+<!-- ICONS -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
-    <symbol id="crown" viewBox="0 0 24 24"><path d="M2 20h20M4 17 2 6l6 4 4-7 4 7 6-4-2 11z"/></symbol>
-    <symbol id="puzzle" viewBox="0 0 24 24"><path d="M19.4 11H18V8a2 2 0 0 0-2-2h-3V4.6a2.6 2.6 0 0 0-5.2 0V6H5a2 2 0 0 0-2 2v3h1.4a2.6 2.6 0 0 1 0 5.2H3V19a2 2 0 0 0 2 2h3v-1.4a2.6 2.6 0 0 1 5.2 0V21h3a2 2 0 0 0 2-2v-3h1.2a2.6 2.6 0 0 0 0-5.2z"/></symbol>
-    <symbol id="users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
-    <symbol id="clock" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20M12 6v6l4 2"/></symbol>
-    <symbol id="cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5zM6 12v5c3 2 9 2 12 0v-5"/></symbol>
-    <symbol id="refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-15-6.7L3 8M3 3v5h5M3 12a9 9 0 0 0 15 6.7L21 16M16 16h5v5"/></symbol>
-    <symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></symbol>
-    <symbol id="hourglass" viewBox="0 0 24 24"><path d="M5 22h14M5 2h14M17 22v-4.2a2 2 0 0 0-.6-1.4L12 12l-4.4 4.4a2 2 0 0 0-.6 1.4V22M7 2v4.2a2 2 0 0 0 .6 1.4L12 12l4.4-4.4A2 2 0 0 0 17 6.2V2"/></symbol>
-    <symbol id="rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2M12 15l-3-3a22 22 0 0 1 2-4 12 12 0 0 1 11-6c0 3-1 8-6 11a22 22 0 0 1-4 2zM9 12H4s.6-3 2-4c1.6-1 5 0 5 0M12 15v5s3-.6 4-2c1-1.6 0-5 0-5"/></symbol>
-    <symbol id="bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></symbol>
-    <symbol id="list" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4M3 7l2 2 4-4M13 6h8M13 12h8M13 18h8"/></symbol>
-    <symbol id="layout" viewBox="0 0 24 24"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"/></symbol>
-    <symbol id="browser" viewBox="0 0 24 24"><path d="M3 4h18v16H3zM3 9h18"/></symbol>
-    <symbol id="palette" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10c0 3-2 4-4 4h-2a2 2 0 0 0-1 3.7c.6.6.3 2.3-3 2.3M7.5 11h.01M10 7h.01M15 7h.01"/></symbol>
-    <symbol id="shapes" viewBox="0 0 24 24"><path d="m12 3 4 7H8zM3 14h7v7H3zM17.5 21a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/></symbol>
-    <symbol id="clap" viewBox="0 0 24 24"><path d="M3 8h18v13H3zM3 8l3-5h3L6 8M10 8l3-5h3l-3 5M17 8l3-5"/></symbol>
-    <symbol id="server" viewBox="0 0 24 24"><path d="M3 3h18v7H3zM3 14h18v7H3zM7 6.5h.01M7 17.5h.01"/></symbol>
-    <symbol id="network" viewBox="0 0 24 24"><path d="M9 2h6v6H9zM2 16h6v6H2zM16 16h6v6h-6zM12 8v4M5 16v-4h14v4"/></symbol>
-    <symbol id="bug" viewBox="0 0 24 24"><path d="M8 8a4 4 0 0 1 8 0v8a4 4 0 0 1-8 0zM12 8v12M4 13h4M16 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"/></symbol>
-    <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
-    <symbol id="layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
-    <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
-    <symbol id="s-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
-    <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
-    <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
-    <symbol id="s-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
-    <symbol id="s-x" viewBox="0 0 24 24"><path d="M4 4l11.7 16h4.3L8.3 4H4zm16 0-6.8 7.8M4 20l6.8-7.8"/></symbol>
-    <symbol id="s-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-    <symbol id="s-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
-  </defs>
+<defs>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="server" viewBox="0 0 24 24"><path d="M3 3h18v7H3zM3 14h18v7H3zM7 6.5h.01M7 17.5h.01"/></symbol>
+  <symbol id="network" viewBox="0 0 24 24"><path d="M9 2h6v6H9zM2 16h6v6H2zM16 16h6v6h-6zM12 8v4M5 16v-4h14v4"/></symbol>
+  <symbol id="bug" viewBox="0 0 24 24"><path d="M8 8a4 4 0 0 1 8 0v8a4 4 0 0 1-8 0zM12 8v12M4 13h4M16 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"/></symbol>
+  <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2M12 15l-3-3a22 22 0 0 1 2-4 12 12 0 0 1 11-6c0 3-1 8-6 11a22 22 0 0 1-4 2zM9 12H4s.6-3 2-4c1.6-1 5 0 5 0M12 15v5s3-.6 4-2c1-1.6 0-5 0-5"/></symbol>
+  <symbol id="cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5zM6 12v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 0-15-6.7L3 8M3 3v5h5M3 12a9 9 0 0 0 15 6.7L21 16M16 16h5v5"/></symbol>
+  <symbol id="hourglass" viewBox="0 0 24 24"><path d="M5 22h14M5 2h14M17 22v-4.2a2 2 0 0 0-.6-1.4L12 12l-4.4 4.4a2 2 0 0 0-.6 1.4V22M7 2v4.2a2 2 0 0 0 .6 1.4L12 12l4.4-4.4A2 2 0 0 0 17 6.2V2"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20M12 6v6l4 2"/></symbol>
+  <symbol id="s-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
+  <symbol id="s-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="s-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+</defs>
 </svg>
+
+<!-- NAVIGATION -->
 
 <nav>
   <a href="#home" class="logo">cherry</a>
@@ -225,202 +1026,338 @@ footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;co
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#docs">Documentation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
+
 <header class="hero" id="home">
-  <h1>Hi, I’m Cherry</h1>
+  <p class="eyebrow">3rd-Year Computer Science Student</p>
+  <h1>Cherry Mae Bendiro</h1>
   <h2>Software Developer</h2>
-  <p>I build responsive websites and working applications, and I like turning rough ideas into things people can use.</p>
+  <p>I build and document web and computer-vision applications that solve real problems, such as a records system that replaces paper files for school clinic staff.</p>
+
   <div class="btns">
-    <a href="#projects" class="btn fill">View my work</a>
-    <a href="#contact" class="btn line">Get in touch</a>
+    <a href="docs/Bendiro_CherryMae_Resume.pdf" download class="btn fill">Download Resume (PDF)</a>
+    <a href="https://www.linkedin.com/in/cherry-mae-bendiro-27a445321" target="_blank" rel="noopener noreferrer" class="btn line">LinkedIn</a>
+    <a href="https://github.com/cherimylk" target="_blank" rel="noopener noreferrer" class="btn line">GitHub</a>
   </div>
 </header>
 
+<!-- ABOUT -->
+
 <section id="about">
-  <div class="wrap">
-    <div class="about">
-      <div>
-        <h2>About Me</h2>
-        <p>I’m a curious person who enjoys exploring technology and turning creative ideas into something meaningful. I’m interested in software and web development, where creativity, problem-solving, and continuous learning meet.</p>
-        <p>I like trying new tools and building projects that push my skills. Every project is a chance to learn something new, grow as a developer, and make something useful.</p>
-        <div class="card education-preview">
-          <h3>Educational Background</h3>
-          <p>BS Computer Science, Filamer Christian University</p>
-          <button type="button" class="btn fill" id="edu-open" style="margin-top:15px">View my education</button>
+<div class="wrap">
+  <div class="about">
+    <div>
+      <h2>About Me</h2>
+
+      <p>I'm a third-year BS Computer Science student at Filamer Christian University, focused on web development and Python applications. I have co-built a school clinic records system and a real-time hand and face tracking prototype.</p>
+
+      <p>I care about explaining what a system does and why it matters, not only how it works, and I write documentation so other people can use and maintain what I build.</p>
+
+      <div class="card education-preview">
+        <h3>Educational Background</h3>
+        <p>BS Computer Science, Filamer Christian University</p>
+        <button type="button" class="btn fill" id="edu-open" style="margin-top:15px">View my education</button>
+      </div>
+    </div>
+
+    <div class="aside">
+      <div class="frame">
+        <div class="photo">
+          C
+          <img src="images/cherry.jpg" alt="Photo of Cherry Mae Bendiro" onerror="this.style.display='none'">
         </div>
       </div>
-      <div class="aside">
-        <div class="frame"><div class="photo">C<img src="images/cherry.jpg" alt="Photo of Cherry" onerror="this.style.display='none'"></div></div>
-      </div>
-    </div>
-
-    <div class="card cert-row">
-      <h4>Certifications &amp; Activities</h4>
-      <button type="button" class="btn fill" id="cert-open">View my certifications</button>
     </div>
   </div>
+
+  <div class="card cert-row">
+    <h4>Certifications &amp; Activities</h4>
+    <button type="button" class="btn fill" id="cert-open">View my certifications</button>
+  </div>
+</div>
 </section>
+
+<!-- PROJECTS -->
 
 <section id="projects">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">My selected work</p><h2>Featured Projects</h2></div>
-      <a class="link-arrow" href="https://github.com/cherimylk" target="_blank" rel="noopener noreferrer">View all projects <svg class="ic"><use href="#i-arrow"/></svg></a>
+<div class="wrap">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">My selected work</p>
+      <h2>Featured Projects</h2>
     </div>
-    <div class="project-grid" id="project-grid"></div>
+
+    <a class="link-arrow" href="https://github.com/cherimylk" target="_blank" rel="noopener noreferrer">
+      View all projects
+      <svg class="ic"><use href="#i-arrow"/></svg>
+    </a>
   </div>
+
+  <div class="project-grid" id="project-grid"></div>
+</div>
 </section>
+
+<!-- SKILLS -->
 
 <section id="skills">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">Technical skills</p><h2>My Skills</h2></div>
-      <div class="head-actions">
-        <button type="button" class="btn line" id="soft-open">Soft Skills</button>
-        <button type="button" class="btn line" id="skills-open">View all skills <svg class="ic"><use href="#i-arrow"/></svg></button>
-      </div>
+<div class="wrap">
+  <div class="sec-head">
+    <div>
+      <p class="eyebrow">Technical skills</p>
+      <h2>Skills</h2>
     </div>
-    <div class="skill-cards" id="skill-cards"></div>
+
+    <button type="button" class="btn line" id="soft-open">Soft Skills</button>
   </div>
+
+  <!-- Removed proficiency legend -->
+
+  <div class="card" style="padding:8px 24px" id="skills-all"></div>
+</div>
 </section>
 
+<!-- DOCUMENTATION -->
+
+<section id="docs">
+<div class="wrap">
+  <p class="eyebrow">Technical writing</p>
+  <h2>Documentation</h2>
+  <p class="lead">Open each in the viewer or download the PDF to view my Application and Resume</p>
+  <div class="doc-grid" id="doc-grid"></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+
 <section id="contact">
-  <div class="wrap" style="text-align:center">
-    <h2>Get In Touch</h2>
-    <div class="contact-center">
-      <p>Feel free to reach out or connect with me on any of these platforms.</p>
-      <div class="socials">
-        <a href="https://github.com/cherimylk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg class="ic"><use href="#s-github"/></svg>
-          <span>GitHub</span>
-        </a>
-        <a href="https://www.facebook.com/cherry.bendiro" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg class="ic"><use href="#s-facebook"/></svg>
-          <span>Facebook</span>
-        </a>
-        <a href="https://www.instagram.com/dei8ght.ee?knvt=ZGN5c3Awdm13d3Z4" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg class="ic"><use href="#s-instagram"/></svg>
-          <span>Instagram</span>
-        </a>
-        <a href="https://www.linkedin.com/in/cherry-mae-bendiro-27a445321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg class="ic"><use href="#s-linkedin"/></svg>
-          <span>LinkedIn</span>
-        </a>
-        <a href="mailto:cherrymaebendiro@gmail.com" aria-label="Email">
-          <svg class="ic"><use href="#s-mail"/></svg>
-          <span>Email</span>
-        </a>
-        <a href="tel:+63 9923159396" aria-label="Phone">
-          <svg class="ic"><use href="#s-phone"/></svg>
-          <span>Phone</span>
-        </a>
-      </div>
+<div class="wrap" style="text-align:center">
+  <h2>Let's Work Together</h2>
+
+  <div class="contact-center">
+    <p>I'm looking for software developer internship. Email me about the opportunity and what the team is building.</p>
+
+    <p>
+      <a class="btn fill" href="mailto:cherrymaebendiro@gmail.com?subject=Opportunity%20for%20Cherry%20Bendiro">
+        Email me about an opportunity
+      </a>
+    </p>
+
+    <div class="socials">
+      <a href="https://github.com/cherimylk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="ic"><use href="#s-github"/></svg>
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/cherry-mae-bendiro-27a445321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="ic"><use href="#s-linkedin"/></svg>
+        <span>LinkedIn</span>
+      </a>
+
+      <a href="mailto:cherrymaebendiro@gmail.com" aria-label="Email">
+        <svg class="ic"><use href="#s-mail"/></svg>
+        <span>Email</span>
+      </a>
     </div>
   </div>
+</div>
 </section>
+
+<!-- PROJECT MODAL -->
 
 <dialog id="project-modal" class="modal" aria-labelledby="pm-title">
   <div class="modal-header">
     <h3 id="pm-title">Project Details</h3>
-    <button type="button" class="icon-btn" id="pm-close" aria-label="Close project details"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="pm-close" aria-label="Close project details">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div id="pm-body"></div>
 </dialog>
 
+<!-- OTHER FEATURES MODAL -->
+
 <dialog id="features-modal" class="modal" aria-labelledby="fm-title">
   <div class="modal-header">
     <h3 id="fm-title">Other Features</h3>
-    <button type="button" class="icon-btn" id="fm-close" aria-label="Close other features"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="fm-close" aria-label="Close other features">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div class="feature-grid" id="fm-grid"></div>
 </dialog>
 
+<!-- EDUCATION MODAL -->
+
 <dialog id="edu-modal" class="modal" aria-labelledby="edu-title">
   <div class="modal-header">
     <h3 id="edu-title">Educational Background</h3>
-    <button type="button" class="icon-btn" id="edu-close" aria-label="Close education"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="edu-close" aria-label="Close education">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div class="education-list" id="edu-grid"></div>
 </dialog>
 
+<!-- CERTIFICATIONS MODAL -->
+
 <dialog id="cert-modal" class="modal" aria-labelledby="cert-title">
   <div class="modal-header">
     <h3 id="cert-title">Certifications &amp; Activities</h3>
-    <button type="button" class="icon-btn" id="cert-close" aria-label="Close certifications"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="cert-close" aria-label="Close certifications">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div class="cert-grid" id="cert-grid"></div>
 </dialog>
 
+<!-- CERTIFICATE DETAIL -->
+
 <dialog id="cert-detail-modal" class="modal modal-lg" aria-labelledby="cm-title">
   <div class="modal-header">
     <h3 id="cm-title">Certificate Preview</h3>
-    <button type="button" class="icon-btn" id="cm-close" aria-label="Close certificate preview"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="cm-close" aria-label="Close certificate preview">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div id="cm-body"></div>
 </dialog>
 
-<dialog id="skills-modal" class="modal" aria-labelledby="skills-title">
+<!-- DOCUMENT MODAL -->
+
+<dialog id="doc-modal" class="modal modal-lg" aria-labelledby="doc-title">
   <div class="modal-header">
-    <h3 id="skills-title">All Technical Skills</h3>
-    <button type="button" class="icon-btn" id="skills-close" aria-label="Close All Technical Skills"><svg class="ic"><use href="#i-close"/></svg></button>
+    <h3 id="doc-title">Document</h3>
+    <button type="button" class="icon-btn" id="doc-close" aria-label="Close document">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
-  <div id="skills-all"></div>
+  <iframe id="doc-frame" title="Document viewer"></iframe>
 </dialog>
+
+<!-- SOFT SKILLS MODAL -->
 
 <dialog id="soft-modal" class="modal" aria-labelledby="soft-title">
   <div class="modal-header">
     <h3 id="soft-title">Soft Skills</h3>
-    <button type="button" class="icon-btn" id="soft-close" aria-label="Close Soft Skills"><svg class="ic"><use href="#i-close"/></svg></button>
+    <button type="button" class="icon-btn" id="soft-close" aria-label="Close Soft Skills">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
   </div>
   <div class="soft" id="soft-all"></div>
 </dialog>
 
-<footer>© 2026 Cherry. All rights reserved.</footer>
+<footer>© 2026 Cherry Mae Bendiro. All rights reserved.</footer>
 
 <script>
+
+/* PROJECT INFORMATION */
+
 const projects = [
+{
+  title: "School Clinic System",
+
+  desc: "A web application that allows school clinic staff to record, search, and update student health records and monitor medical supplies in one centralized system.",
+
+  tags: ["Python","Django","MySQL","HTML","CSS","JavaScript"],
+
+  image: "images/school_clinic.png",
+  link: "#",
+  code: "https://github.com/cherimylk/school_clinic_system.git",
+
+  role: "Co-developer | Academic Project | May 2026",
+
+  problem: "School clinic staff need an organized way to manage student health records and medical supplies. Manually handling records can make information difficult to retrieve and update, while poor inventory monitoring can lead to shortages.",
+
+  arch: "A web-based application developed using Django and Python, with MySQL for database management and HTML, CSS, and JavaScript for the user interface.",
+
+  why: [
+    "Python and Django: Used to develop the application's backend and handle system operations.",
+    "MySQL: Stores and organizes student medical records, medicine information, and inventory data.",
+    "HTML, CSS, and JavaScript: Used to build an accessible and interactive interface for clinic staff.",
+    "Bootstrap: Helps maintain a consistent and responsive layout across different screen sizes."
+  ],
+
+  contrib: [
+    "Collaborated in developing the school clinic management system and its core functionalities.",
+    "Assisted in implementing student medical record management, including storing, searching, and updating information.",
+    "Contributed to the medicine inventory module to help organize and monitor available medical supplies.",
+    "Participated in connecting the application to the MySQL database and checking system functionality."
+  ],
+
+  results: [
+    "Developed a centralized platform for managing student medical records and clinic inventory.",
+    "Implemented record management features that make student information easier to search and update.",
+    "Organized medicine inventory information to support more convenient supply monitoring.",
+    "Tested the application's main functions to identify issues and improve system reliability."
+  ]
+},
+
+{
+  title: "IoT Hand & Face Tracking",
+
+  desc: "A real-time computer vision application that detects and tracks hand and facial movements through a live camera feed.",
+
+  tags: ["Python","OpenCV","MediaPipe","Computer Vision","IoT"],
+
+  image: "images/hand_ar.jpg",
+  link: "#",
+  code: "https://github.com/angelann1/IOT_OpenCV.git",
+
+  role: "Co-developer | Academic Project | October-November 2026",
+
+  problem: "The project explores how ordinary camera input can be used to recognize hand and facial movements in real time. It demonstrates how computer vision can serve as an input method for interactive and IoT-related applications.",
+
+  arch: "A Python-based application that uses OpenCV to capture and process live camera frames and MediaPipe to detect hand landmarks and facial features.",
+
+  why: [
+    "Python: Provides a suitable environment for developing and integrating computer vision libraries.",
+    "OpenCV: Handles camera access, video capture, and real-time image processing.",
+    "MediaPipe: Provides pre-trained hand and face landmark detection solutions for tracking movements.",
+    "Computer Vision: Allows the application to interpret visual information from a live camera feed."
+  ],
+
+  contrib: [
+    "Collaborated in developing the real-time hand and face tracking application.",
+    "Assisted in integrating OpenCV for live camera capture and frame processing.",
+    "Worked with MediaPipe to detect and display hand and facial landmarks.",
+    "Participated in testing the tracking functionality under different camera positions and conditions."
+  ],
+
+  results: [
+    "Developed a working prototype capable of detecting hand and facial landmarks through a live camera feed.",
+    "Integrated camera capture and landmark detection into a single Python application.",
+    "Demonstrated real-time visual tracking using OpenCV and MediaPipe.",
+    "Explored the potential use of camera-based interaction in IoT-related applications."
+  ]
+}
+];
+
+/* DOCUMENTS */
+
+const docs = [
   {
-    title: "School Clinic System",
-    desc: "A web-based application that helps school clinic staff manage student medical records and monitor medical supplies. Users can record, search, retrieve, and update student health information while keeping clinic inventory organized and accessible.",
-    tags: ["Python","Django","MySQL","HTML","CSS","JavaScript"],
-    image: "images/school_clinic.png",
-    link: "#",
-    code: "https://github.com/cherimylk/school_clinic_system.git",
-    role: "Co-developer | Academic Project | May 2026",
-    features: ["Record, search, retrieve, and update student medical records","Track clinic medical supplies and inventory","Provide a web interface for school clinic staff"],
-    more: [
-      { title: "Student Medical Records", desc: "Add student health records and update them whenever information changes.", image: "" },
-      { title: "Search and Retrieval", desc: "Find student records so clinic staff can access health information when needed.", image: "" },
-      { title: "Clinic Inventory", desc: "Monitor medical supplies so stock stays organized and easy to check.", image: "" }
-    ]
+    title: "Resume",
+    desc: "One-page resume tailored to a software developer intern role.",
+    file: "docs/Bendiro_CherryMae_Resume.pdf"
   },
   {
-    title: "IoT Hand Tracking",
-    desc: "A system that combines computer vision and IoT concepts to detect and track hand in real time using Python.",
-    tags: ["Python","OpenCV","Computer Vision","IoT"],
-    image: "images/hand_ar.jpg", link: "#", code: "https://github.com/angelann1/IOT_OpenCV.git",
-    role: "Co-Developer | Academic Project | October 2026",
-    features: ["Detect and track hand movements in real time","Detect and track facial movements","Use computer vision for real-time tracking","Combine computer vision with IoT concepts"],
-    learned: "This project helped me explore computer vision, real-time detection, and the use of Python libraries for processing camera input."
+    title: "Cover Letter",
+    desc: "Cover letter written for a software developer intern application.",
+    file: "docs/BENDIRO_APPLICATION_LETTER.pdf"
   },
   {
-    title: "IoT Face Tracking",
-    desc: "A computer vision-based system that detects and tracks facial movements in real time using Python and OpenCV.",
-    tags: ["Python", "OpenCV", "MediaPipe", "Computer Vision", "IoT"],
-    image: "images/face_tracking.jpg", link: "#", code: "https://github.com/angelann1/IOT_OpenCV.git",
-    role: "Co-Developer | Academic Project | November 2026",
-    features: [
-        "Detects and tracks facial landmarks in real time",
-        "Uses MediaPipe Face Mesh for facial feature detection",
-        "Processes live camera input using OpenCV",
-        "Explores the integration of computer vision and IoT concepts"
-    ],
-    learned: "This project helped me understand facial landmark detection, real-time camera processing, and the use of MediaPipe and OpenCV in developing computer vision applications."
+    title: "SOP / Developer Guide",
+    desc: "Step-by-step guide written for a non-technical reader.",
+    file: "docs/Cherry_Bendiro_SOP.pdf"
   }
 ];
+
+/* CERTIFICATIONS */
 
 const certs = [
   {
@@ -431,7 +1368,7 @@ const certs = [
     image: "images/Intro_to_Modern_AI.png"
   },
   {
-    title: "Python Essensial 1",
+    title: "Python Essentials 1",
     org: "Cisco Networking Academy",
     date: "November 25, 2026",
     url: "",
@@ -455,7 +1392,6 @@ const certs = [
     title: "Elements of AI (2 ECTS)",
     org: "MinnaLearn & University of Helsinki",
     date: "November 15, 2026",
-    certId: "",
     url: "https://certificates.mooc.fi/validate/y7oh7v3liqo",
     image: "images/Elements_of_AI.png"
   },
@@ -463,7 +1399,6 @@ const certs = [
     title: "English for IT 1",
     org: "Cisco Networking Academy & OpenEDG",
     date: "November 14, 2026",
-    certId: "cc1f2bd1-8ca5-4d1f-87c3-3910fba8d597",
     url: "",
     image: "images/English_IT1.png"
   },
@@ -482,24 +1417,74 @@ const certs = [
     image: "images/WordCamp.png"
   }
 ];
+/* EDUCATION */
 
 const education = [
-  { year: "2024 – 2028", title: "Bachelor of Science in Computer Science", school: "Filamer Christian University Inc.", description: "Currently pursuing a degree in Computer Science." },
-  { year: "2022 – 2024", title: "Senior High School", school: "Capiz National High School", description: "Science, Technology, Engineering and Mathematics (STEM)" },
-  { year: "2018 – 2022", title: "Junior High School", school: "Marcos Fuentes Integrated School", description: "" }
+  {
+    year: "2024 – 2028",
+    title: "Bachelor of Science in Computer Science",
+    school: "Filamer Christian University Inc.",
+  },
+  {
+    year: "2022 – 2024",
+    title: "Senior High School",
+    school: "Capiz National High School",
+    description: "Science, Technology, Engineering and Mathematics (STEM)"
+  },
+  {
+    year: "2018 – 2022",
+    title: "Junior High School",
+    school: "Marcos Fuentes Integrated School",
+    description: ""
+  }
 ];
 
-/* Skills: "i" = built-in icon id, "d" = devicon logo name */
+/* SKILLS */
+
 const skills = {
   technical: [
-    { group: "Design Tools", items: [{n:"Figma",d:"figma"},{n:"Canva",d:"canva"}]},
-    { group: "Front-End Development", items: [
-      {n:"HTML",d:"html5"},{n:"CSS",d:"css3"},{n:"JavaScript (Basic)",d:"javascript"},{n:"Tailwind CSS",d:"tailwindcss"}]},
-    { group: "Programming & Database", items: [
-      {n:"Python",d:"python"},{n:"Django",d:"django"},{n:"MySQL",d:"mysql"},{n:"PostgreSQL",d:"postgresql"}]},
-    { group: "Development & Technical Tools", items: [
-      {n:"OpenCV",d:"opencv"},{n:"XAMPP",i:"server"},{n:"GitHub",d:"github"},{n:"Network Troubleshooting",i:"network"},{n:"Code Debugging",i:"bug"}]}
+    {
+      group: "Programming Languages",
+      items: [
+        {n:"Python",d:"python"},
+        {n:"JavaScript",d:"javascript"}
+      ]
+    },
+    {
+      group: "Front-End Development",
+      items: [
+        {n:"HTML",d:"html5"},
+        {n:"CSS",d:"css3"},
+        {n:"Tailwind CSS",d:"tailwindcss"}
+      ]
+    },
+    {
+      group: "Back-End & Frameworks",
+      items: [
+        {n:"Django",d:"django"},
+        {n:"OpenCV",d:"opencv"}
+      ]
+    },
+    {
+      group: "Databases",
+      items: [
+        {n:"MySQL",d:"mysql"},
+        {n:"PostgreSQL",d:"postgresql"}
+      ]
+    },
+    {
+      group: "Tools & Technologies",
+      items: [
+        {n:"GitHub",d:"github"},
+        {n:"XAMPP",i:"server"},
+        {n:"Figma",d:"figma"},
+        {n:"Canva",d:"canva"},
+        {n:"Code Debugging",i:"bug"},
+        {n:"Network Troubleshooting",i:"network"}
+      ]
+    }
   ],
+
   soft: [
     { group: "", items: [
       {n:"Decision-Making",i:"compass"},
@@ -515,174 +1500,438 @@ const skills = {
   ]
 };
 
+/* GENERAL FUNCTIONS */
+
 const real = url => url && url !== "#";
-const icon = id => `<svg class="ic"><use href="#${id}"/></svg>`;
+
+const icon = id =>
+  `<svg class="ic"><use href="#${id}"/></svg>`;
 
 function createImage(image, alt, mode = "cover") {
   if (!image) return `<span>Image not available</span>`;
-  return `<img src="${image}" alt="${alt}" style="object-fit:${mode}" onerror="this.style.display='none';this.parentElement.querySelector('span').hidden=false"><span hidden>Image unavailable</span>`;
+
+  return `
+    <img
+      src="${image}"
+      alt="${alt}"
+      style="object-fit:${mode}"
+      onerror="this.style.display='none';this.parentElement.querySelector('span').hidden=false"
+    >
+    <span hidden>Image unavailable</span>
+  `;
 }
-const createTags = tags => tags.map(t => `<span class="tag">${t}</span>`).join("");
-const openDialog = d => { if (!d.open) { d.showModal(); document.body.classList.add("modal-open"); } };
-const closeDialog = d => { if (d.open) d.close(); };
-const updateModalScroll = () => document.body.classList.toggle("modal-open", document.querySelectorAll("dialog[open]").length > 0);
+
+const createTags = tags =>
+  tags.map(t => `<span class="tag">${t}</span>`).join("");
+
+const openDialog = d => {
+  if (!d.open) {
+    d.showModal();
+    document.body.classList.add("modal-open");
+  }
+};
+
+const closeDialog = d => {
+  if (d.open) d.close();
+};
+
+const updateModalScroll = () => {
+  document.body.classList.toggle(
+    "modal-open",
+    document.querySelectorAll("dialog[open]").length > 0
+  );
+};
 
 function wireDialog(dialog, closeBtnId, openBtnId) {
-  document.getElementById(closeBtnId).addEventListener("click", () => closeDialog(dialog));
-  dialog.addEventListener("click", e => { if (e.target === dialog) closeDialog(dialog); });
+  document.getElementById(closeBtnId).addEventListener(
+    "click",
+    () => closeDialog(dialog)
+  );
+
+  dialog.addEventListener("click", e => {
+    if (e.target === dialog) closeDialog(dialog);
+  });
+
   dialog.addEventListener("close", updateModalScroll);
-  if (openBtnId) document.getElementById(openBtnId).addEventListener("click", () => openDialog(dialog));
+
+  if (openBtnId) {
+    document.getElementById(openBtnId).addEventListener(
+      "click",
+      () => openDialog(dialog)
+    );
+  }
 }
 
-/* Skills */
+/* SKILLS */
+
 const chipHTML = x => `
   <span class="chip">
-    <span class="mark">${x.d
-      ? `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${x.d}/${x.d}-original.svg" alt="" loading="lazy" onerror="this.replaceWith(document.createTextNode('${x.n[0]}'))">`
-      : icon(x.i)}</span>${x.n}
-  </span>`;
+    <span class="mark">
+      ${
+        x.d
+        ? `<img
+             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${x.d}/${x.d}-original.svg"
+             alt=""
+             loading="lazy"
+             onerror="this.replaceWith(document.createTextNode('${x.n[0]}'))"
+           >`
+        : icon(x.i)
+      }
+    </span>
+    ${x.n}
+  </span>
+`;
 
-document.getElementById("skills-all").innerHTML = skills.technical.map(g => `
-  <div class="srow">
-    <h4>${g.group}</h4>
-    <div class="chips">${g.items.map(chipHTML).join("")}</div>
-  </div>`).join("");
-document.getElementById("soft-all").innerHTML = skills.soft[0].items.map(chipHTML).join("");
+document.getElementById("skills-all").innerHTML =
+  skills.technical.map(g => `
+    <div class="srow">
+      <h4>${g.group}</h4>
+      <div class="chips">
+        ${g.items.map(chipHTML).join("")}
+      </div>
+    </div>
+  `).join("");
 
-const allTech = skills.technical.flatMap(g => g.items);
-const featured = ["HTML","CSS","JavaScript (Basic)","Python","MySQL"].map(n => allTech.find(x => x.n === n));
-document.getElementById("skill-cards").innerHTML = featured.map(x => `
-  <div class="card skill-card">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${x.d}/${x.d}-original.svg" alt="" loading="lazy">
-    <span>${x.n}</span>
-  </div>`).join("");
-wireDialog(document.getElementById("skills-modal"), "skills-close", "skills-open");
-wireDialog(document.getElementById("soft-modal"), "soft-close", "soft-open");
+document.getElementById("soft-all").innerHTML =
+  skills.soft[0].items.map(chipHTML).join("");
 
-/* Projects */
+wireDialog(
+  document.getElementById("soft-modal"),
+  "soft-close",
+  "soft-open"
+);
+
+/* PROJECT CARDS */
+
 const projectGrid = document.getElementById("project-grid");
+
 projectGrid.innerHTML = projects.map((p, i) => `
   <article class="card project">
-    <div class="thumb">${createImage(p.image, p.title + " screenshot")}</div>
+
+    <div class="thumb">
+      ${createImage(p.image, p.title + " screenshot")}
+    </div>
+
     <div class="project-body">
+
       <h4>${p.title}</h4>
+
       <p>${p.desc}</p>
+
       <div class="tags">
-        ${p.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("")}
+        ${p.tags.slice(0,3).map(t => `<span class="tag">${t}</span>`).join("")}
         ${p.tags.length > 3 ? `<span class="tag">+${p.tags.length - 3}</span>` : ""}
       </div>
-      <button type="button" class="link-arrow" data-project="${i}">View project ${icon("i-arrow")}</button>
+
+      <button type="button" class="link-arrow" data-project="${i}">
+        View Details ${icon("i-arrow")}
+      </button>
+
     </div>
-  </article>`).join("");
+  </article>
+`).join("");
+
+/* PROJECT DETAILS MODAL */
 
 const pm = document.getElementById("project-modal");
 const pmBody = document.getElementById("pm-body");
 const fm = document.getElementById("features-modal");
 
 projectGrid.addEventListener("click", e => {
+
   const b = e.target.closest("[data-project]");
   if (!b) return;
-  const i = Number(b.dataset.project), p = projects[i];
+
+  const i = Number(b.dataset.project);
+  const p = projects[i];
+
   if (!p) return;
+
+  const li = items =>
+    items.map(x => `<li>${x}</li>`).join("");
+
   pmBody.innerHTML = `
-    <div class="detail-image">${createImage(p.image, p.title + " full screenshot", "contain")}</div>
+
+    <div class="detail-image">
+      ${createImage(p.image, p.title + " full screenshot", "contain")}
+    </div>
+
     <h2>${p.title}</h2>
-    <div class="pm-role">${p.role || "Personal Project"}</div>
-    <p>${p.desc}</p>
-    <h4>Key Features</h4>
-    <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
+
+    <div class="pm-role">${p.role}</div>
+
+    <h4>The Problem</h4>
+    <p>${p.problem}</p>
+
+    <h4>System Architecture &amp; Tech Stack Justification</h4>
+    <p>${p.arch}</p>
+    <ul>${li(p.why)}</ul>
+
+    <h4>My Individual Contributions</h4>
+    <ul>${li(p.contrib)}</ul>
+
+    <h4>Results &amp; Testing Outcomes</h4>
+    <ul>${li(p.results)}</ul>
+
     <h4>Technologies Used</h4>
     <div class="tags">${createTags(p.tags)}</div>
+
     <div class="pm-links">
-      ${p.more?.length ? `<button type="button" class="btn line" data-more="${i}">Other features</button>` : ""}
-      ${real(p.code) ? `<a class="btn fill" href="${p.code}" target="_blank" rel="noopener noreferrer">View source code</a>` : ""}
-      ${real(p.link) ? `<a class="btn line" href="${p.link}" target="_blank" rel="noopener noreferrer">Live demo</a>` : ""}
-    </div>`;
+
+      ${
+        real(p.code)
+        ? `<a class="btn fill" href="${p.code}" target="_blank" rel="noopener noreferrer">View source code</a>`
+        : ""
+      }
+
+      ${
+        real(p.link)
+        ? `<a class="btn line" href="${p.link}" target="_blank" rel="noopener noreferrer">Live demo</a>`
+        : ""
+      }
+
+    </div>
+  `;
+
   openDialog(pm);
 });
+
 wireDialog(pm, "pm-close");
 
+/* OTHER FEATURES */
+
 pmBody.addEventListener("click", e => {
+
   const b = e.target.closest("[data-more]");
   if (!b) return;
+
   const p = projects[Number(b.dataset.more)];
   if (!p?.more) return;
-  document.getElementById("fm-title").textContent = p.title + " - Other Features";
-  document.getElementById("fm-grid").innerHTML = p.more.map(f => `
-    <article class="feature-card">
-      <div class="thumb">${createImage(f.image, f.title)}</div>
-      <h4>${f.title}</h4>
-      <p>${f.desc}</p>
-    </article>`).join("");
+
+  document.getElementById("fm-title").textContent =
+    p.title + " - Other Features";
+
+  document.getElementById("fm-grid").innerHTML =
+    p.more.map(f => `
+      <article class="feature-card">
+        <div class="thumb">
+          ${createImage(f.image, f.title)}
+        </div>
+        <h4>${f.title}</h4>
+        <p>${f.desc}</p>
+      </article>
+    `).join("");
+
   openDialog(fm);
 });
+
 wireDialog(fm, "fm-close");
 
-/* Education */
-document.getElementById("edu-grid").innerHTML = education.map(x => `
-  <article class="education-item">
-    <div class="year">${x.year}</div>
-    <h4>${x.title}</h4>
-    ${x.school ? `<p><strong>${x.school}</strong></p>` : ""}
-    ${x.description ? `<p>${x.description}</p>` : ""}
-  </article>`).join("");
-wireDialog(document.getElementById("edu-modal"), "edu-close", "edu-open");
+/* DOCUMENTATION */
 
-/* Certifications */
+const docGrid = document.getElementById("doc-grid");
+const dm = document.getElementById("doc-modal");
+const df = document.getElementById("doc-frame");
+
+docGrid.innerHTML = docs.map((d, i) => `
+  <article class="card doc">
+
+    <h4>${d.title}</h4>
+    <p>${d.desc}</p>
+
+    <div class="btns">
+
+      <button type="button" class="btn fill" data-doc="${i}">
+        View
+      </button>
+
+      <a class="btn line" href="${d.file}" download>
+        Download PDF
+      </a>
+
+    </div>
+  </article>
+`).join("");
+
+docGrid.addEventListener("click", e => {
+
+  const b = e.target.closest("[data-doc]");
+  if (!b) return;
+
+  const d = docs[Number(b.dataset.doc)];
+
+  document.getElementById("doc-title").textContent = d.title;
+
+  df.src = d.file;
+
+  openDialog(dm);
+});
+
+wireDialog(dm, "doc-close");
+
+dm.addEventListener("close", () => {
+  df.src = "about:blank";
+});
+
+/* EDUCATION */
+
+document.getElementById("edu-grid").innerHTML =
+  education.map(x => `
+    <article class="education-item">
+
+      <div class="year">${x.year}</div>
+
+      <h4>${x.title}</h4>
+
+      ${x.school ? `<p><strong>${x.school}</strong></p>` : ""}
+
+      ${x.description ? `<p>${x.description}</p>` : ""}
+
+    </article>
+  `).join("");
+
+wireDialog(
+  document.getElementById("edu-modal"),
+  "edu-close",
+  "edu-open"
+);
+
+/* CERTIFICATIONS */
+
 const certGrid = document.getElementById("cert-grid");
 const cm = document.getElementById("cert-detail-modal");
 const cmBody = document.getElementById("cm-body");
 
 certGrid.innerHTML = certs.map((c, i) => `
-  <article class="cert-card" role="button" tabindex="0" data-cert="${i}" aria-label="View larger ${c.title} certificate">
-    <div class="thumb">${createImage(c.image, c.title + " certificate", "contain")}</div>
+  <article
+    class="cert-card"
+    role="button"
+    tabindex="0"
+    data-cert="${i}"
+    aria-label="View larger ${c.title} certificate"
+  >
+
+    <div class="thumb">
+      ${createImage(c.image, c.title + " certificate", "contain")}
+    </div>
+
     <h4>${c.title}</h4>
+
     <div class="org">${c.org}</div>
+
     <p>${c.date}</p>
+
     ${c.certId ? `<div class="meta">Cert ID: ${c.certId}</div>` : ""}
-    ${real(c.url) ? `<a class="verify" href="${c.url}" target="_blank" rel="noopener noreferrer">Verify credential ${icon("i-ext")}</a>` : ""}
-  </article>`).join("");
+
+    ${
+      real(c.url)
+      ? `<a class="verify" href="${c.url}" target="_blank" rel="noopener noreferrer">
+           Verify credential ${icon("i-ext")}
+         </a>`
+      : ""
+    }
+
+  </article>
+`).join("");
 
 function openCertModal(index) {
+
   const c = certs[index];
   if (!c) return;
+
   document.getElementById("cm-title").textContent = c.title;
+
   cmBody.innerHTML = `
-    <div class="detail-image cert-zoom">${createImage(c.image, c.title + " full certificate", "contain")}</div>
+
+    <div class="detail-image cert-zoom">
+      ${createImage(c.image, c.title + " full certificate", "contain")}
+    </div>
+
     <h2>${c.title}</h2>
+
     <div class="pm-role">${c.org} • ${c.date}</div>
+
     ${c.certId ? `<p><strong>Certificate ID:</strong> ${c.certId}</p>` : ""}
-    ${real(c.url) ? `<div class="pm-links"><a class="btn fill" href="${c.url}" target="_blank" rel="noopener noreferrer">Verify credential ${icon("i-ext")}</a></div>` : ""}`;
+
+    ${
+      real(c.url)
+      ? `<div class="pm-links">
+           <a class="btn fill" href="${c.url}" target="_blank" rel="noopener noreferrer">
+             Verify credential ${icon("i-ext")}
+           </a>
+         </div>`
+      : ""
+    }
+
+  `;
+
   openDialog(cm);
 }
 
 certGrid.addEventListener("click", e => {
+
   if (e.target.closest("a.verify")) return;
+
   const card = e.target.closest("[data-cert]");
   if (card) openCertModal(Number(card.dataset.cert));
+
 });
 
 certGrid.addEventListener("keydown", e => {
+
   if (e.key !== "Enter" && e.key !== " ") return;
+
   const card = e.target.closest("[data-cert]");
   if (!card) return;
+
   e.preventDefault();
+
   openCertModal(Number(card.dataset.cert));
+
 });
 
-wireDialog(document.getElementById("cert-modal"), "cert-close", "cert-open");
+wireDialog(
+  document.getElementById("cert-modal"),
+  "cert-close",
+  "cert-open"
+);
+
 wireDialog(cm, "cm-close");
 
-/* Active nav link */
+/* ACTIVE NAVIGATION */
+
 const navLinks = document.querySelectorAll("nav ul a");
+
 if ("IntersectionObserver" in window) {
+
   const io = new IntersectionObserver(entries => {
+
     entries.forEach(en => {
-      if (en.isIntersecting) navLinks.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + en.target.id));
+
+      if (en.isIntersecting) {
+
+        navLinks.forEach(l => {
+
+          l.classList.toggle(
+            "active",
+            l.getAttribute("href") === "#" + en.target.id
+          );
+
+        });
+
+      }
+
     });
+
   }, { threshold: 0.25 });
-  document.querySelectorAll("header[id], section[id]").forEach(s => io.observe(s));
+
+  document.querySelectorAll("header[id], section[id]").forEach(s => {
+    io.observe(s);
+  });
+
 }
+
 </script>
+
 </body>
 </html>
