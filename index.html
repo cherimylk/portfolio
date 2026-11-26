@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a0a0c">
-<title>Cherry | Software Developer</title>
+<title>Cherry | Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -205,6 +205,9 @@ footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;co
     <symbol id="server" viewBox="0 0 24 24"><path d="M3 3h18v7H3zM3 14h18v7H3zM7 6.5h.01M7 17.5h.01"/></symbol>
     <symbol id="network" viewBox="0 0 24 24"><path d="M9 2h6v6H9zM2 16h6v6H2zM16 16h6v6h-6zM12 8v4M5 16v-4h14v4"/></symbol>
     <symbol id="bug" viewBox="0 0 24 24"><path d="M8 8a4 4 0 0 1 8 0v8a4 4 0 0 1-8 0zM12 8v12M4 13h4M16 13h4M4 7l3 2M20 7l-3 2M4 19l3-2M20 19l-3-2"/></symbol>
+    <symbol id="compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+    <symbol id="layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
     <symbol id="s-github" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></symbol>
     <symbol id="s-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
     <symbol id="s-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
@@ -294,23 +297,23 @@ footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;co
           <svg class="ic"><use href="#s-github"/></svg>
           <span>GitHub</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <a href="https://www.facebook.com/cherry.bendiro" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <svg class="ic"><use href="#s-facebook"/></svg>
           <span>Facebook</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://www.instagram.com/dei8ght.ee?knvt=ZGN5c3Awdm13d3Z4" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg class="ic"><use href="#s-instagram"/></svg>
           <span>Instagram</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="www.linkedin.com/in/cherry-mae-bendiro-27a445321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg class="ic"><use href="#s-linkedin"/></svg>
           <span>LinkedIn</span>
         </a>
-        <a href="mailto:YOUR_EMAIL@example.com" aria-label="Email">
+        <a href="mailto:cherrymaebendiro@gmail.com" aria-label="Email">
           <svg class="ic"><use href="#s-mail"/></svg>
           <span>Email</span>
         </a>
-        <a href="tel:+630000000000" aria-label="Phone">
+        <a href="tel:+63 9923159396" aria-label="Phone">
           <svg class="ic"><use href="#s-phone"/></svg>
           <span>Phone</span>
         </a>
@@ -417,6 +420,20 @@ const projects = [
 
 const certs = [
   {
+    title: "Introduction to Modern AI",
+    org: "Cisco Networking Academy",
+    date: "November 25, 2026",
+    url: "",
+    image: "images/Intro_to_Modern_AI.png"
+  },
+  {
+    title: "Python Essensial 1",
+    org: "Cisco Networking Academy",
+    date: "November 25, 2026",
+    url: "",
+    image: "images/Python_Essential.png"
+  },
+  {
     title: "Creating Compelling Reports",
     org: "Cisco Networking Academy",
     date: "November 25, 2026",
@@ -471,8 +488,6 @@ const education = [
 /* Skills: "i" = built-in icon id, "d" = devicon logo name */
 const skills = {
   technical: [
-    { group: "UI/UX & Digital Media", items: [
-      {n:"UI/UX Design",i:"layout"},{n:"Web Interface Design",i:"browser"},{n:"Visual Design",i:"palette"},{n:"Graphic Design",i:"shapes"},{n:"Digital Media Content",i:"clap"}]},
     { group: "Design Tools", items: [{n:"Figma",d:"figma"},{n:"Canva",d:"canva"}]},
     { group: "Front-End Development", items: [
       {n:"HTML",d:"html5"},{n:"CSS",d:"css3"},{n:"JavaScript (Basic)",d:"javascript"},{n:"Tailwind CSS",d:"tailwindcss"}]},
@@ -483,9 +498,16 @@ const skills = {
   ],
   soft: [
     { group: "", items: [
-      {n:"Leadership",i:"crown"},{n:"Problem-Solving",i:"puzzle"},{n:"Teamwork",i:"users"},{n:"Time Management",i:"clock"},
-      {n:"Willingness to Learn",i:"cap"},{n:"Adaptability",i:"refresh"},{n:"Attention to Detail",i:"eye"},{n:"Patience",i:"hourglass"},
-      {n:"Initiative",i:"rocket"},{n:"Creativity",i:"bulb"},{n:"Organization",i:"list"}]}
+      {n:"Decision-Making",i:"compass"},
+      {n:"Systems Thinking",i:"layers"},
+      {n:"Curiosity",i:"search"},
+      {n:"Collaboration",i:"users"},
+      {n:"Initiative",i:"rocket"},
+      {n:"Willingness to Learn",i:"cap"},
+      {n:"Adaptability",i:"refresh"},
+      {n:"Patience",i:"hourglass"},
+      {n:"Time Management",i:"clock"}
+    ]}
   ]
 };
 
