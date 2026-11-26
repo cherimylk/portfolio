@@ -253,7 +253,7 @@ footer{padding:30px 20px;border-top:1px solid var(--border);text-align:center;co
         </div>
       </div>
       <div class="aside">
-        <div class="frame"><div class="photo">C<img src="images/pic.jpg" alt="Photo of Cherry" onerror="this.style.display='none'"></div></div>
+        <div class="frame"><div class="photo">C<img src="images/cherry.jpg" alt="Photo of Cherry" onerror="this.style.display='none'"></div></div>
       </div>
     </div>
 
@@ -391,7 +391,6 @@ const projects = [
     code: "https://github.com/cherimylk/school_clinic_system.git",
     role: "Co-developer | Academic Project | May 2026",
     features: ["Record, search, retrieve, and update student medical records","Track clinic medical supplies and inventory","Provide a web interface for school clinic staff"],
-    learned: "This project helped me understand how web applications organize information, manage database records, and support the daily operations of a school clinic.",
     more: [
       { title: "Student Medical Records", desc: "Add student health records and update them whenever information changes.", image: "" },
       { title: "Search and Retrieval", desc: "Find student records so clinic staff can access health information when needed.", image: "" },
@@ -399,22 +398,27 @@ const projects = [
     ]
   },
   {
-    title: "IoT Hand and Face Tracking",
-    desc: "A system that combines computer vision and IoT concepts to detect and track hand and facial movements in real time using Python.",
+    title: "IoT Hand Tracking",
+    desc: "A system that combines computer vision and IoT concepts to detect and track hand in real time using Python.",
     tags: ["Python","OpenCV","Computer Vision","IoT"],
-    image: "", link: "#", code: "#",
-    role: "Developer | Academic Project | October 2026",
+    image: "images/hand_ar.jpg", link: "#", code: "https://github.com/angelann1/IOT_OpenCV.git",
+    role: "Co-Developer | Academic Project | October 2026",
     features: ["Detect and track hand movements in real time","Detect and track facial movements","Use computer vision for real-time tracking","Combine computer vision with IoT concepts"],
     learned: "This project helped me explore computer vision, real-time detection, and the use of Python libraries for processing camera input."
   },
   {
-    title: "Wi-Fi Configuration and Network Troubleshooting",
-    desc: "Performed LAN connectivity checks, configured IP address and DNS settings, and helped troubleshoot basic network problems with the Filamer ICT Student Association.",
-    tags: ["Networking","Wi-Fi","LAN","Troubleshooting"],
-    image: "", link: "#", code: "#",
-    role: "Filamer ICT Student Association | October 2026",
-    features: ["Performed LAN connectivity checks to identify network issues","Configured IP address and DNS settings","Assisted with basic network configuration problems"],
-    learned: "This experience strengthened my understanding of basic networking, connectivity checks, IP configuration, and troubleshooting."
+    title: "IoT Face Tracking",
+    desc: "A computer vision-based system that detects and tracks facial movements in real time using Python and OpenCV.",
+    tags: ["Python", "OpenCV", "MediaPipe", "Computer Vision", "IoT"],
+    image: "images/face_tracking.jpg", link: "#", code: "https://github.com/angelann1/IOT_OpenCV.git",
+    role: "Co-Developer | Academic Project | November 2026",
+    features: [
+        "Detects and tracks facial landmarks in real time",
+        "Uses MediaPipe Face Mesh for facial feature detection",
+        "Processes live camera input using OpenCV",
+        "Explores the integration of computer vision and IoT concepts"
+    ],
+    learned: "This project helped me understand facial landmark detection, real-time camera processing, and the use of MediaPipe and OpenCV in developing computer vision applications."
   }
 ];
 
@@ -587,7 +591,6 @@ projectGrid.addEventListener("click", e => {
     <p>${p.desc}</p>
     <h4>Key Features</h4>
     <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
-    ${p.learned ? `<h4>What I Learned</h4><p>${p.learned}</p>` : ""}
     <h4>Technologies Used</h4>
     <div class="tags">${createTags(p.tags)}</div>
     <div class="pm-links">
